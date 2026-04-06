@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Road’s Eye | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="auth-overlay" class="auth-container">
+    <div class="auth-card neon-border">
+        <h2 id="auth-title">THE ROAD’S EYE: JOIN</h2>
+        
+        <div id="register-fields">
+            <input type="text" id="reg-name" placeholder="Full Name (3 Names)">
+            <input type="text" id="reg-id" placeholder="National ID (Password)">
+            <select id="reg-category">
+                <option value="" disabled selected>Select Vehicle Category</option>
+                <option value="A">Category A (Motorcycles)</option>
+                <option value="B">Category B (Private Cars)</option>
+                <option value="C">Category C (Commercial)</option>
+            </select>
+        </div>
+
+        <button class="submit-btn" onclick="handleAuth()">Enter Platform</button>
+        <p class="toggle-text" onclick="toggleAuthMode()">Already a member? <span class="neon-text">Login</span></p>
+    </div>
+</div>
+<div class="app-wrapper">
+<aside class="neon-sidebar">
+    <div class="sidebar-header">
+        <h1 class="logo">THE ROAD’S <span>EYE</span></h1>
+        <div class="user-info">
+            <p class="user-name">Vince</p>
+            <p class="user-cat">Category B</p>
+        </div>
+    </div>
+    
+    <nav class="nav-menu">
+        <h2 class="nav-heading">Dashboard</h2>
+
+        <button class="nav-item" onclick="showSection('routes')">🌐  View Routes</button>
+        <button class="nav-item" onclick="showSection('profile')">👤 My Profile</button>
+        <button class="nav-item" onclick="showSection('advertise')">📢 Advertise</button>
+        <button class="nav-item report-btn" onclick="toggleReport()">⚠ File Report</button>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div class="mini-road">
+            <div class="mini-line"></div>
+            <div class="zebra-mini"></div>
+            <div class="car player-mini"></div>
+            <div class="car traffic-mini"></div>
+        </div>
+        <p class="status-text">SYSTEM LIVE</p>
+    </div>
+</aside>
+
+<main class="main-content">
+<section id="routes-view" class="content-section" style="display:none;">
+    <div class="glass-panel routes-container">
+        <div class="section-header">
+            <h2>GPS Navigation System</h2>
+            <p>Satellite Tracking Active</p>
+        </div>
+
+        <div class="route-controls">
+            <input type="text" id="destination-input" placeholder="Enter Destination (e.g. Nairobi CBD)" class="neon-input">
+            <button class="neon-btn" onclick="updateGPS()">Start Navigation</button>
+        </div>
+
+        <div class="map-wrapper glow-card">
+            <iframe 
+                id="google-map"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15955.26122695553!2d36.8219!3d-1.2833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ske!4v171234567890" 
+                width="100%" 
+                height="500" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+            
+            <div class="gps-overlay">
+                <div class="signal-strength">📡 SIGNAL: OPTIMAL</div>
+                <div class="coordinates">LAT: -1.2833 / LON: 36.8219</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="profile-view" class="content-section" style="display:none;">
+    <div class="glass-panel profile-container">
+        <div class="section-header">
+            <h2>Driver Identity</h2>
+        </div>
+
+        <div class="profile-card" id="profile-display">
+            </div>
+
+        <button class="neon-btn edit-trigger" id="edit-profile-btn" onclick="toggleProfileEdit()">
+            Edit Profile
+        </button>
+
+        <div id="profile-edit-actions" style="display:none; margin-top: 20px;">
+            <button class="neon-btn" onclick="saveProfile()">Save Changes</button>
+            <button class="neon-btn secondary" onclick="toggleProfileEdit()">Cancel</button>
+        </div>
+    </div>
+</section>
+
+<section id="advertise-view" class="content-section" style="display:none;">
+    <div class="glass-panel advertise-container">
+        <div class="section-header">
+            <h2>Partner With The Road's Eye</h2>
+            <p>Monetize your business visibility through high-traffic route placements.</p>
+        </div>
+
+        <div class="ad-tier-grid">
+            <div class="tier-card glow-card">
+                <h3>Standard</h3>
+                <span class="price">Ksh 2,500/mo</span>
+                <ul>
+                    <li>Local Map Pins</li>
+                    <li>Basic Route Shoutouts</li>
+                </ul>
+            </div>
+            <div class="tier-card glow-card premium">
+                <div class="badge">Popular</div>
+                <h3>Premium</h3>
+                <span class="price">Ksh 7,000/mo</span>
+                <ul>
+                    <li>Clearance Authorization</li>
+                    <li>Priority Smart Routing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contact-box glass-panel">
+            <h3>Direct Inquiry</h3>
+            <p>Ready to start your campaign? Reach out to our team:</p>
+            <div class="contact-detail">
+                <span class="neon-text">Phone:</span> +254 718 896 349
+            </div>
+            <div class="contact-detail">
+                <span class="neon-text">Email:</span> architectvince7@gmail.com
+            </div>
+            <button class="neon-btn" onclick="window.location.href='tel:+254718896349'">Call Now</button>
+        </div>
+    </div>
+</section>
+</main>
+
+<div id="report-modal" class="modal">
+    <div class="modal-content glass-panel">
+        <h2>Report Road Incident</h2>
+        <input type="text" id="plate-num" placeholder="Vehicle Number Plate" class="neon-input">
+        <select id="violation-type" class="neon-input">
+            <option value="overspeeding">Overspeeding </option>
+            <option value="bullying">Road Rage / Bullying </option>
+            <option value="disregarding">Disregarding Traffic Signs/ rules</option>
+        </select>
+        <textarea id="report-desc" placeholder="Describe the behavior..." class="neon-input"></textarea>
+        <div class="modal-actions">
+            <button class="neon-btn" onclick="submitReport()">Submit Report </button>
+            <button class="neon-btn secondary" onclick="toggleReport()">Cancel</button>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

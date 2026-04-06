@@ -1,0 +1,1397 @@
+:root {
+    --bg-dark: #0a0a0c;
+    --neon-blue: #00f3ff;
+    --neon-red: #ff0055;
+    --tarmac: #1a1a1d;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+.navbar {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.logo span { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
+
+.container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    height: calc(100vh - 70px); /* Design Note: calc usage */
+}
+
+/* Map Area */
+#map-area {
+    background: #111;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.road.tarmac {
+    width: 80%;
+    height: 100px;
+    background: var(--tarmac);
+    position: relative;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+}
+
+/* Intense Traffic Visualization: Dotted Lines */
+.road.intense .lane-line {
+    border-top: 5px dotted var(--neon-red);
+}
+
+.lane-line {
+    width: 100%;
+    height: 2px;
+    background: none;
+    border-top: 5px dashed #555;
+    position: absolute;
+    top: 50%;
+}
+
+.car {
+    width: 40px;
+    height: 20px;
+    background: var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    border-radius: 4px;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #1a1a1a;
+    width: 400px;
+    margin: 100px auto;
+    padding: 2rem;
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+input, select, textarea {
+    width: 100%;
+    margin: 10px 0;
+    background: #000;
+    color: white;
+    border: 1px solid #444;
+    padding: 10px;
+}
+/* Auth Overlay Styling */
+.auth-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.auth-card {
+    background: #111;
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+}
+
+.neon-border { border: 2px solid var(--neon-blue); }
+.neon-text { color: var(--neon-blue); cursor: pointer; }
+
+.toggle-text {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Initially hide the main app content if not logged in */
+.navbar, .container {
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+:root {
+    --side-width: 260px;
+    --neon-cyan: #00f3ff;
+    --dark-bg: #050505;
+}
+
+body {
+    margin: 0;
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.app-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* Side Dashboard Panel */
+.neon-sidebar {
+    width: var(--side-width);
+    background: #0a0a0a;
+    border-right: 1px solid rgba(0, 243, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.logo span {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.side-nav {
+    flex-grow: 1;
+}
+
+.nav-item {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #888;
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.nav-item.active, .nav-item:hover {
+    color: var(--neon-cyan);
+    background: rgba(0, 243, 255, 0.05);
+    box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.1);
+}
+
+/* Advertisement & Footer Section */
+.neon-promo-box {
+    border: 1px solid var(--neon-cyan);
+    padding: 15px;
+    margin: 20px 0;
+    font-size: 0.8rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+.user-status {
+    border-top: 1px solid #222;
+    padding-top: 20px;
+}
+
+.user-name { font-weight: bold; margin: 0; }
+.user-cat { color: #555; font-size: 0.8rem; margin: 5px 0 0; }
+
+/* Main Content Spacing */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    padding: 20px;
+    border-bottom: 1px solid #111;
+}
+
+.visual-engine {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Add a digital grid to the main content area */
+.main-content {
+    background: 
+        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-color: #050505;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a glowing vignette effect */
+.main-content::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none;
+}
+
+.neon-sidebar {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border-right: 1px solid var(--neon-cyan);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.nav-item:hover {
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+    transform: translateX(10px); /* Interactive slide effect */
+}
+
+/* Add a "scanning" light beam to the active button */
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
+    animation: scan 2s infinite;
+}
+
+@keyframes scan {
+    100% { left: 100%; }
+}
+
+.pulse-dot {
+    height: 10px;
+    width: 10px;
+    background-color: #00ff88; /* Green for Smooth Flow  */
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    box-shadow: 0 0 10px #00ff88;
+    animation: pulse-green 1.5s infinite;
+}
+
+@keyframes pulse-green {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+    70% { transform: scale(1.2); box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+}
+
+.neon-promo-box {
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid var(--neon-cyan);
+    border-radius: 4px;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.ad-label {
+    font-size: 0.7rem;
+    color: var(--neon-cyan);
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+* {
+    text-transform: uppercase; /* Gives it that HUD/Military feel */
+    letter-spacing: 1px;
+}
+
+.user-name {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.user-cat {
+    color: #888;
+    font-size: 0.65rem;
+}
+
+.neon-input {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: white;
+    padding: 10px;
+    box-shadow: inset 0 0 5px var(--neon-cyan);
+}
+
+#gps-map-mock {
+    height: 300px;
+    background: #000;
+    border: 1px dashed var(--neon-cyan);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.tracking-dot {
+    width: 12px; height: 12px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--neon-cyan);
+    animation: ping 1.5s infinite;
+}
+
+@keyframes ping {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+/* Update this in style.css */
+.app-wrapper {
+    transition: filter 0.5s ease;
+}
+
+/* Initially hide the main app content */
+.app-wrapper.locked {
+    filter: blur(15px);
+    pointer-events: none;
+}
+
+/* Neon Inputs & Dropdowns */
+.neon-input {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    color: #fff;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+    outline: none;
+}
+
+.neon-input:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.3);
+    background: rgba(0, 243, 255, 0.05);
+}
+
+/* Styling the Dropdown specifically */
+select.neon-input {
+    cursor: pointer;
+    appearance: none; /* Removes default arrow */
+    background-image: linear-gradient(45deg, transparent 50%, var(--neon-cyan) 50%),
+                      linear-gradient(135deg, var(--neon-cyan) 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px),
+                         calc(100% - 15px) calc(1em + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+select.neon-input option {
+    background: #0a0a0c;
+    color: #fff;
+}
+
+/* Styled Buttons */
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.neon-btn {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.4s;
+}
+
+.neon-btn:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.neon-btn.secondary {
+    border-color: #555;
+    color: #888;
+}
+
+.neon-btn.secondary:hover {
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+    box-shadow: 0 0 20px var(--neon-red);
+    background: transparent;
+}
+
+/* Profile Layout Enhancements */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.neon-btn.mini {
+    padding: 5px 15px;
+    font-size: 0.7rem;
+    width: auto;
+}
+
+/* Container for the profile section */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything horizontally */
+    text-align: center;
+}
+
+/* Ensure the button looks integrated and stays below */
+.edit-trigger {
+    margin-top: 30px;
+    width: 200px; /* Specific width so it's not too wide */
+    font-size: 0.8rem;
+    padding: 10px;
+}
+
+/* Profile Card Styling */
+#profile-display {
+    width: 100%;
+    max-width: 400px;
+}
+
+.profile-card p {
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-card strong {
+    color: var(--neon-cyan);
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.profile-card span {
+    font-size: 1.1rem;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 243, 255, 0.3);
+}
+
+/* Glowing Glass Panel */
+.glass-panel {
+    background: rgba(10, 10, 12, 0.85);
+    backdrop-filter: blur(20px);
+    
+    /* The Glow Effect */
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2), 
+                inset 0 0 10px rgba(0, 243, 255, 0.1);
+    
+    padding: 30px;
+    margin: 20px;
+    border-radius: 8px; /* Sharp but professional */
+    transition: box-shadow 0.3s ease;
+}
+
+/* Subtle hover interaction for a "Smart" feel */
+.glass-panel:hover {
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.4), 
+                inset 0 0 15px rgba(0, 243, 255, 0.2);
+}
+
+/* Smart Glowing Buttons */
+.neon-btn {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 12px 25px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Outer Glow */
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.neon-btn:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 30px var(--neon-cyan);
+    transform: translateY(-2px); /* Slight lift for "Smart" feel */
+}
+
+/* Specific styling for the Edit Button to keep it centered and glowing */
+.edit-trigger {
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+}
+
+/* Reporting Modal Glow */
+.modal-content.glass-panel {
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 40px rgba(0, 243, 255, 0.3);
+}
+
+/* Secondary Button (Cancel) should glow Red */
+.neon-btn.secondary {
+    border-color: rgba(255, 0, 85, 0.5);
+    color: #ff0055;
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.1);
+}
+
+.neon-btn.secondary:hover {
+    background: #ff0055;
+    color: white;
+    box-shadow: 0 0 30px #ff0055;
+    border-color: #ff0055;
+}
+
+/* Smart Glowing Inputs & Selects */
+.profile-edit-input {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--neon-cyan);
+    color: white;
+    padding: 8px 12px;
+    font-family: inherit;
+    width: 80%; /* Adjusted for centered look */
+    border-radius: 4px;
+    outline: none;
+    
+    /* The Glow */
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.1), 
+                inset 0 0 5px rgba(0, 243, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Interaction: Intensify glow on focus */
+.profile-edit-input:focus {
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4), 
+                inset 0 0 10px rgba(0, 243, 255, 0.1);
+    background: rgba(0, 243, 255, 0.05);
+}
+
+/* Specific styling for the Dropdown (Select) */
+select.profile-edit-input {
+    cursor: pointer;
+    appearance: none; /* Removes default browser arrow */
+    background-image: linear-gradient(45deg, transparent 50%, var(--neon-cyan) 50%),
+                      linear-gradient(135deg, var(--neon-cyan) 50%, transparent 50%);
+    background-position: calc(100% - 20px) center,
+                         calc(100% - 15px) center;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+/* Style the dropdown options */
+select.profile-edit-input option {
+    background: #0a0a0c;
+    color: white;
+}
+
+.profile-edit-input::placeholder {
+    color: rgba(0, 243, 255, 0.3);
+}
+
+/* Add a slight pulse to the border when editing is active */
+@keyframes borderPulse {
+    0% { border-color: rgba(0, 243, 255, 0.5); }
+    50% { border-color: rgba(0, 243, 255, 1); }
+    100% { border-color: rgba(0, 243, 255, 0.5); }
+}
+
+.profile-edit-input {
+    animation: borderPulse 2s infinite ease-in-out;
+}
+
+/* Ensure the backdrop covers the whole screen and centers the card */
+.modal {
+    display: none; /* Controlled by JS */
+    position: fixed;
+    z-index: 2000; /* Above everything */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    
+    /* The centering magic */
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style the card itself */
+.modal-content.glass-panel {
+    width: 90%;
+    max-width: 450px;
+    margin: 0; /* Remove auto margins since parent is flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+}
+
+/* Center labels and inputs inside the report card */
+.modal-content h2 {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.modal-content .neon-input {
+    width: 100%;
+    max-width: 380px;
+    margin-bottom: 15px;
+    text-align: center; /* Centers text/placeholder inside */
+    border-radius: 4px;
+}
+
+/* Special handling for the textarea */
+textarea#report-desc {
+    min-height: 100px;
+    resize: none; /* Keeps the UI clean */
+}
+
+/* Button Layout */
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    max-width: 380px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Advertise Page Layout */
+.advertise-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ad-tier-grid {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.tier-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    padding: 25px;
+    width: 220px;
+    border-radius: 8px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.tier-card.premium {
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+}
+
+.tier-card h3 { color: var(--neon-cyan); margin-bottom: 10px; }
+.tier-card .price { font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 15px; }
+.tier-card ul { list-style: none; padding: 0; font-size: 0.8rem; color: #ccc; }
+.tier-card ul li { margin: 8px 0; }
+
+.badge {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background: var(--neon-cyan);
+    color: #000;
+    font-size: 0.6rem;
+    padding: 2px 8px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* Contact Box Styling */
+.contact-box {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-detail {
+    margin: 15px 0;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Container for the entire Advertise section */
+.advertise-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* The Horizontal Grid for Ad Tiers */
+.ad-tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 800px; /* Keeps the boxes from spreading too far */
+}
+
+.tier-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.tier-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+}
+
+.tier-card h3 {
+    color: var(--neon-cyan);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.tier-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+/* Style the paragraph after the main heading */
+.advertise-container .section-header p {
+    color: rgba(0, 243, 255, 0.7); /* Dimmer neon cyan */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    margin-bottom: 40px; /* Space before the grid starts */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    text-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
+}
+
+.advertise-container .section-header h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--neon-cyan);
+    margin: 15px auto;
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Center the Navigation Content */
+.routes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.route-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* The Map Styling */
+.map-wrapper {
+    width: 100%;
+    max-width: 900px;
+    height: 450px;
+    border: 2px solid var(--neon-cyan);
+    border-radius: 12px;
+    overflow: hidden; /* Clips the map corners to the radius */
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+    position: relative;
+}
+
+/* Custom "Night Mode" for the real Google Map */
+#google-map {
+    filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(110%);
+    transition: filter 0.5s ease;
+}
+
+/* Make it glow even more on hover */
+.map-wrapper:hover {
+    box-shadow: 0 0 40px rgba(0, 243, 255, 0.5);
+}
+
+.route-controls .neon-input {
+    width: 300px;
+    margin-bottom: 0; /* Remove the bottom margin from profile style */
+    text-align: left; /* Keep search text left-aligned for better UX */
+}
+
+.route-controls .neon-btn {
+    width: auto;
+    padding: 0 25px;
+}
+
+/* Hide the 'Open in Maps' and 'Directions' buttons via clipping */
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    border: 2px solid var(--neon-cyan);
+    border-radius: 15px;
+    overflow: hidden; /* This clips the Google UI elements at the edges */
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+}
+
+#google-map {
+    margin-top: -50px; /* Moves the map up to hide the top search bar of the iframe */
+    height: calc(100% + 50px);
+    filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(110%);
+}
+
+/* GPS HUD Elements */
+.gps-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    pointer-events: none; /* Allows clicking the map through the text */
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.signal-strength {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-left: 2px solid var(--neon-cyan);
+}
+
+/* Style the paragraph after 'GPS Navigation System' */
+#routes-view .section-header p {
+    color: var(--neon-cyan);
+    font-family: 'Courier New', monospace; /* Tech/Terminal font */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    opacity: 0.8;
+    text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+    position: relative;
+    display: inline-block;
+}
+
+/* Add a small blinking recording dot before the text */
+#routes-view .section-header p::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #ff0055; /* Red for 'Live' */
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 10px #ff0055;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Navigation Search Button */
+#routes-view .neon-btn {
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 12px 30px;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#routes-view .neon-btn:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 25px var(--neon-cyan), 
+                0 0 50px rgba(0, 243, 255, 0.4);
+    transform: translateY(-2px); /* Smart lift effect */
+}
+
+#routes-view .neon-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+#routes-view .neon-input {
+    border: 1px solid rgba(0, 243, 255, 0.4);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    width: 350px;
+    transition: 0.3s;
+}
+
+#routes-view .neon-input:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Sidebar Footer Positioning */
+.neon-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes footer to bottom */
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(0, 243, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* The Mini Road */
+.mini-road {
+    width: 100%;
+    height: 40px;
+    background: #111;
+    border: 1px solid var(--neon-cyan);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: inset 0 0 10px #000;
+}
+
+.mini-line {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.zebra-mini {
+    position: absolute;
+    left: 70%;
+    width: 15px;
+    height: 100%;
+    background: repeating-linear-gradient(to bottom, transparent, transparent 4px, #555 4px, #555 8px);
+}
+
+/* Mini Cars */
+.car.player-mini {
+    width: 15px;
+    height: 8px;
+    background: var(--neon-cyan);
+    top: 20%;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.car.traffic-mini {
+    width: 15px;
+    height: 8px;
+    background: #ff0055;
+    top: 60%;
+    box-shadow: 0 0 8px #ff0055;
+}
+
+.status-text {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+    animation: pulse 2s infinite;
+}
+
+/* Sidebar Core Layout */
+.neon-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px 0; /* Vertical breathing room */
+    justify-content: flex-start; /* Keeps nav items at the top */
+    overflow: hidden;
+}
+
+/* Sidebar Header Adjustment */
+.sidebar-header {
+    margin-bottom: 30px; /* Reduced from previous excess */
+    padding: 0 20px;
+    text-align: left;
+}
+
+.logo {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+/* User Info Styling */
+.user-info {
+    border-left: 2px solid var(--neon-cyan);
+    padding-left: 15px;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Tightens the vertical space between buttons */
+    width: 100%;
+}
+
+.nav-item {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 12px 25px;
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+}
+
+/* Active and Hover States */
+.nav-item:hover, .nav-item.active {
+    color: var(--neon-cyan);
+    background: linear-gradient(90deg, rgba(0, 243, 255, 0.1), transparent);
+    border-left: 3px solid var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* File Report specific styling */
+.report-btn {
+    margin-top: 10px; /* Slight separation for the action button */
+    color: #ff0055;
+}
+
+.report-btn:hover {
+    color: #ff0055;
+    background: linear-gradient(90deg, rgba(255, 0, 85, 0.1), transparent);
+    border-left: 3px solid #ff0055;
+    text-shadow: 0 0 8px #ff0055;
+}
+
+/* Sidebar Footer (The Road) */
+.sidebar-footer {
+    margin-top: auto; /* Pushes the road to the bottom */
+    padding: 20px;
+    width: 100%;
+}
+
+.mini-road {
+    border-radius: 4px;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    height: 45px;
+}
+
+/* Styling for the non-clickable Dashboard heading */
+.nav-heading {
+    color: var(--neon-cyan);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 20px 25px 10px 25px; /* Added spacing to separate from logo */
+    margin: 0;
+    opacity: 0.9;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    pointer-events: none; /* Ensures it cannot be clicked */
+    user-select: none;
+}
+
+/* Ensure subsequent nav-items have proper spacing */
+.nav-item {
+    margin-left: 10px; /* Slight indent to show hierarchy under the heading */
+}
+
+/* Styling for the Register/Login Card */
+.auth-card {
+    background: rgba(10, 10, 12, 0.9);
+    border: 1px solid var(--neon-cyan);
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.15), 
+                inset 0 0 15px rgba(0, 243, 255, 0.05);
+    backdrop-filter: blur(10px); /* Smart glass effect */
+}
+
+.auth-card h2 {
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Input Fields & Select Dropdown */
+.auth-card input, 
+.auth-card select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 4px;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.auth-card input:focus, 
+.auth-card select:focus {
+    outline: none;
+    border-color: var(--neon-cyan);
+    background: rgba(0, 243, 255, 0.05);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+/* Style the placeholder text */
+.auth-card input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-card .neon-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--neon-cyan);
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+}
+
+.auth-card .neon-btn:hover {
+    background: #fff;
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.6);
+    transform: scale(1.02);
+}
+.auth-footer {
+    margin-top: 25px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+
+.auth-footer span {
+    color: var(--neon-cyan);
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 5px;
+    transition: 0.3s;
+}
+
+.auth-footer span:hover {
+    color: #fff;
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* Main Submit Button Styling */
+.auth-card .neon-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: var(--neon-cyan);
+    color: #000; /* Dark text for high contrast on bright cyan */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+}
+
+.auth-card .neon-btn:hover {
+    background: #fff; /* Flashes white on hover for a 'charged' feel */
+    box-shadow: 0 0 30px var(--neon-cyan), 
+                0 0 50px rgba(0, 243, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.auth-card .neon-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Bottom Toggle Link Styling */
+.auth-footer {
+    margin-top: 25px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.auth-footer span {
+    color: var(--neon-cyan);
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 8px;
+    padding: 2px 5px;
+    transition: 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.auth-footer span:hover {
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-cyan);
+    border-bottom: 1px solid var(--neon-cyan);
+}
+
+/* Customizing the Select Arrow and Box */
+.auth-card select {
+    appearance: none; /* Removes default browser arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2300f3ff'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    cursor: pointer;
+}
+
+.auth-card select option {
+    background: #111; /* Matches your dashboard theme */
+    color: #fff;
+}
+
+/* Customizing the Enter Platform Button */
+.auth-card .neon-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: var(--neon-cyan);
+    color: #000; /* Dark text for best contrast on bright neon */
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Wide spacing for that high-tech look */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+}
+
+/* Hover Effect: The "Charge" */
+.auth-card .neon-btn:hover {
+    background: #fff; /* Flashes white on hover */
+    box-shadow: 0 0 30px var(--neon-cyan), 
+                0 0 50px rgba(0, 243, 255, 0.3);
+    transform: translateY(-2px);
+    letter-spacing: 6px; /* Text expands slightly on hover */
+}
+
+/* Click Effect */
+.auth-card .neon-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 10px var(--neon-cyan);
+    background: var(--neon-cyan);
+}
+
+/* Optional: Add a subtle pulse to the button to draw the eye */
+@keyframes buttonPulse {
+    0% { box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(0, 243, 255, 0.7); }
+    100% { box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); }
+}
+
+.auth-card .neon-btn {
+    animation: buttonPulse 2s infinite;
+}
