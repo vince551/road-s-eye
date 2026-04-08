@@ -1395,3 +1395,41 @@ textarea#report-desc {
 .auth-card .neon-btn {
     animation: buttonPulse 2s infinite;
 }
+
+.submit-btn {
+  /* Size & Shape */
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  /* Colors */
+  background: transparent;
+  color: #00f2ff; /* Cyan neon */
+  border: 2px solid #00f2ff;
+  
+  /* The Glow */
+  box-shadow: 0 0 5px #00f2ff, inset 0 0 5px #00f2ff;
+  text-shadow: 0 0 5px #00f2ff;
+  
+  /* Smooth Transition */
+  transition: all 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  /* Intense Glow Effect */
+  color: #fff;
+  background-color: #00f2ff;
+  box-shadow: 0 0 10px #00f2ff, 
+              0 0 20px #00f2ff, 
+              0 0 40px #00f2ff;
+  transform: translateY(-2px); /* Slight lift */
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0 5px #00f2ff;
+}
