@@ -1,89 +1,62 @@
 <div align="center">
 
-# 👁️ THE ROAD’S EYE
-### **Smart HUD & Route Monetization Platform**
+# 👁️ THE ROAD'S EYE
+### **Smart HUD · Navigation · Route Intelligence**
 
-[![Version](https://img.shields.io/badge/Version-1.0.0--Beta-00f3ff?style=for-the-badge&logo=target)](https://github.com/)
-[![UI](https://img.shields.io/badge/UI-Neon--Glassmorphism-ff0055?style=for-the-badge)](https://github.com/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://github.com/)
+![Version](https://img.shields.io/badge/VERSION-1.0.0--BETA-00F3FF?style=for-the-badge)
+![UI](https://img.shields.io/badge/UI-NEON%20GLASSMORPHISM-FF0055?style=for-the-badge)
+![License](https://img.shields.io/badge/LICENSE-MIT-00FF88?style=for-the-badge)
 
----
-
-<p align="center">
-  <b>The Road’s Eye</b> is a high-performance web dashboard designed for the modern driver. 
-  It blends real-time GPS navigation with a unique business ecosystem, 
-  wrapped in a sleek, "Night Vision" inspired interface.
-</p>
-
-[Explore the Docs](#-core-systems) • [View Demo](#) • [Report Bug](https://github.com/)
+**A cyber-inspired driver dashboard concept combining navigation, visual road simulation and a route-based business ecosystem.**
 
 </div>
 
 ---
+
+## ✦ What It Does
+
+The Road's Eye presents a modern driver interface with a **night-vision / cockpit HUD aesthetic**. The project explores how navigation, route information and business visibility can coexist inside one responsive web experience.
 
 ## 🚀 Core Systems
 
-### 🛰️ Smart GPS Navigation
-* **Real-Time Tracking**: Integrated Google Maps with a custom "Night Mode" CSS filter.
-* **Dynamic Routing**: Calculates paths from "My Location" to any destination entered by the driver.
-* **HUD Overlay**: Live signal strength indicators and coordinate tracking for a professional cockpit feel.
+- 🛰️ GPS / map-oriented navigation interface
+- 🧭 Dynamic route presentation
+- 🖥️ HUD-style coordinate and signal displays
+- 🚗 Animated road / traffic simulation
+- 💰 Route-based advertising concept
+- 📱 Responsive glassmorphism UI
 
-### 💰 Monetization Engine (Advertise)
-* **Tiered Partnerships**: Features "Standard" and "Premium" (Route Clearance) advertising slots.
-* **Direct Inquiry**: Integrated contact module for seamless business onboarding via phone or email.
-* **Strategic Placement**: High-traffic route placements to monetize business visibility.
+## 🎨 Design System
 
-### 🚗 Visual Flow Engine
-* **Live Simulation**: A dynamic CSS/JS animation showing player and traffic movement.
-* **Road Infrastructure**: Realistic zebra crossings, speed limit signs, and lane markers.
-* **Traffic Status**: Real-time "Smooth Flow" vs. "Congestion" pill indicators.
+`#00F3FF` GPS / actions · `#FF0055` alerts · `#0A0A0C` background
 
----
+Visual language: **Cyber-Grid · Neon-Noir · Glassmorphism · Monospace HUD**
 
-## 🎨 Design Aesthetic
+## 🛠️ Stack
 
-* **Theme**: Cyber-Grid / Neon-Noir.
-* **Primary Palette**: 
-    * `Neon Cyan` (#00f3ff): Primary Action & GPS.
-    * `Neon Rose` (#ff0055): Alerts & Traffic.
-    * `Deep Onyx` (#0a0a0c): Background Base.
-* **Visual Effects**: Glassmorphism, Backdrop-Blur, Pulsing Glow, and Monospaced Typography.
+`HTML5` · `CSS3` · `JavaScript ES6+` · `Google Maps Embed API`
 
----
+## 🚀 Run Locally
 
-## 🛠️ Tech Stack
+```bash
+git clone https://github.com/vince551/road-s-eye.git
+cd road-s-eye
+```
 
-| Component | Technology |
-| :--- | :--- |
-| **Frontend** | HTML5 / CSS3 (Flexbox & Grid) |
-| **Logic** | JavaScript (ES6+ / RequestAnimationFrame) |
-| **Mapping** | Google Maps Embed API |
-| **Styling** | Custom Neon-Glass CSS |
+Open the project through a local web server for the best browser behavior.
 
----
+## 🔭 Future Direction
 
-## 📥 Installation
+- Real navigation API integration
+- Improved traffic data layer
+- Driver safety features
+- Business analytics dashboard
+- Stronger privacy and permission controls
 
-1.  **Clone the repository**:
-    ```bash
-    git clone [https://github.com/vince-workspace/the-roads-eye.git](https://github.com/vince-workspace/the-roads-eye.git)
-    ```
-2.  **Launch Platform**:
-    Open `index.html` in a modern browser (Chrome/Brave recommended for optimal filter rendering).
-3.  **Authentication**: 
-    Use the **Join/Login** card to access the secure driver dashboard.
+## 👨‍💻 Author
+
+**Vince Odhiambo** — web developer and technology builder.
 
 ---
 
-## 📞 Contact the Architect
-
-For partnership inquiries or technical support:
-* **Lead Architect**: Vince
-* **Phone**: +254 718 896 349
-* **Email**: architectvince7@gmail.com
-
----
-
-<div align="center">
-  <sub>System Note: Satellite Tracking is currently active. Drive safe, the Eye is watching.</sub>
-</div>
+<p align="center"><sub>Designing interfaces where data feels like a cockpit.</sub></p>
